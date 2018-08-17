@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    successful:
+      messages:
+        created: "%{model} was successfully created."
+        updated: "%{model} was successfully updated."

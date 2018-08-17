@@ -1,78 +1,76 @@
 <%= form_for booking do |form| %>
 
-  <% if booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<% [booking, contact, person].each do | model | %>
+  <%= render 'errors.html.erb', model: model %>
+<% end %>
 
-      <ul>
-      <% booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="form-group" id="booking-form">
 
   <div class="field">
     <%= form.label :date_in %>
-    <%= form.datetime_select :date_in %>
+    <%= form.datetime_select :date_in, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :date_out %>
-    <%= form.datetime_select :date_out %>
+    <%= form.datetime_select :date_out, class: 'form-control' %>
   </div>
+</div>
 
 Person
+<div class="form-group" id="person-form">
 
  <%= form.fields_for person do |person_form| %>
 
   <div class="field">
     <%= person_form.label :first_name %>
-    <%= person_form.text_field :first_name %>
+    <%= person_form.text_field :first_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= person_form.label :last_name %>
-    <%= person_form.text_field :last_name %>
+    <%= person_form.text_field :last_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= person_form.label :salutation %>
-    <%= person_form.text_field :salutation %>
+    <%= person_form.text_field :salutation, class: 'form-control' %>
   </div>
 
 <% end %>
+</div>
 
 Contact
+<div class="form-group" id="contact-form">
 <%= form.fields_for contact do |contact_form| %>
 
     <div class="field">
       <%= contact_form.label :street %>
-      <%= contact_form.text_field :street %>
+      <%= contact_form.text_field :street, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= contact_form.label :city %>
-      <%= contact_form.text_field :city %>
+      <%= contact_form.text_field :city, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= contact_form.label :postalCode %>
-      <%= contact_form.text_field :postalCode %>
+      <%= contact_form.text_field :postalCode, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= contact_form.label :phone %>
-      <%= contact_form.text_field :phone %>
+      <%= contact_form.text_field :phone, class: 'form-control' %>
     </div>
 
     <div class="field">
       <%= contact_form.label :email %>
-      <%= contact_form.text_field :email %>
+      <%= contact_form.text_field :email, class: 'form-control' %>
     </div>
 
     <% end %>
-
+</div>
 
 
   <div class="actions">

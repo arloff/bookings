@@ -38,7 +38,11 @@ class BookingsController < ApplicationController
     @person = @contact.persons.build(person_params)
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html do
+          redirect_to @booking,
+                      notice: t('activerecord.successful.messages.created',
+                                model: Booking.model_name.human)
+        end
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -52,7 +56,11 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html do
+          redirect_to @booking,
+                      notice: t('activerecord.successful.messages.updated',
+                                model: Booking.model_name.human)
+        end
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
