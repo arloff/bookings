@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :contacts
   resources :bookings
   root 'bookings#index'
+  get 'icalendar', to: 'bookings#ical'
   # see http://guides.rubyonrails.org/routing.html
 end
