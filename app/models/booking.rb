@@ -6,4 +6,7 @@ class Booking < ApplicationRecord
   has_many :persons, through: :contact
   has_many :markers
   accepts_nested_attributes_for :contact, :persons
+  def person
+    persons.first
+  end
 end
