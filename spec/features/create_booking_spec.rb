@@ -12,8 +12,7 @@ def fill_in_booking(booking)
 end
 
 def check_for_booking_data(booking)
-    date_in = Regexp.new("#{t('activerecord.attributes.booking.date_in')}.*#{format_date(booking.date_in)}")
-
+  date_in = Regexp.new("#{t('activerecord.attributes.booking.date_in')}.*#{format_date(booking.date_in)}")
   expect(page).to have_content(date_in)
 end
 

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Date in:</strong>
-  <%= @booking.date_in %>
+  <strong><%= t('activerecord.attributes.booking.date_in') %></strong>
+  <%= format_date(@booking.date_in) %>
 </p>
 
 <p>
