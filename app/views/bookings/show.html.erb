@@ -6,54 +6,59 @@
 </p>
 
 <p>
-  <strong>Date out:</strong>
-  <%= @booking.date_out %>
+  <strong><%= t('activerecord.attributes.booking.date_out') %></strong>
+  <%= format_date(@booking.date_out) %>
 </p>
 
+<p>
+  <strong><%= t('activerecord.attributes.booking.comment') %></strong>
+  <%= @booking.comment %>
+</p>
 
 <p>
-  <strong>First name:</strong>
+  <strong><%= t('activerecord.attributes.booking.no_persons') %></strong>
+  <%= @booking.no_persons %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.person.first_name') %></strong>
   <%= @person.first_name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
+  <strong><%= t('activerecord.attributes.person.last_name') %></strong>
   <%= @person.last_name %>
 </p>
 
 <p>
-  <strong>Salutation:</strong>
+  <strong><%= t('activerecord.attributes.person.salutation') %> </strong>
   <%= @person.salutation %>
 </p>
 
-
-
-
 <p>
-  <strong>Street:</strong>
+  <strong><%= t('activerecord.attributes.contact.street') %> </strong>
   <%= @contact.street %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= t('activerecord.attributes.contact.city') %> </strong>
   <%= @contact.city %>
 </p>
 
 <p>
-  <strong>Postalcode:</strong>
+  <strong><%= t('activerecord.attributes.contact.postalCode') %> </strong>
   <%= @contact.postalCode %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t('activerecord.attributes.contact.phone') %> </strong>
   <%= @contact.phone %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= t('activerecord.attributes.contact.email') %> </strong>
   <%= @contact.email %>
 </p>
-
 
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |

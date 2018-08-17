@@ -15,6 +15,11 @@
     <%= form.label :date_out %>
     <%= form.datetime_select :date_out, class: 'form-control' %>
   </div>
+
+  <div class="field">
+    <%= form.label :no_persons %>
+    <%= form.text_field :no_persons, class: 'form-control' %>
+  </div>
 </div>
 
 Person
@@ -72,6 +77,13 @@ Contact
     <% end %>
 </div>
 
+<div class="form-group" id="booking-form-comment">
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, class: 'form-control' %>
+  </div>
+</div>
 
   <div class="actions">
     <%= form.submit %>
