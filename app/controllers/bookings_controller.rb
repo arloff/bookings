@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# The Bookings Controller.
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
