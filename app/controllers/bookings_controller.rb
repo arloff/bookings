@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   # GET /bookings
   # GET /bookings.json
@@ -9,8 +11,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1
   # GET /bookings/1.json
-  def show
-  end
+  def show; end
 
   # GET /bookings/new
   def new
@@ -18,8 +19,7 @@ class BookingsController < ApplicationController
   end
 
   # GET /bookings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bookings
   # POST /bookings.json
@@ -62,13 +62,14 @@ class BookingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def booking_params
-      params.require(:booking).permit(:date_in, :date_out, :status, :requested, :confirmed, :contract_signed, :deposit_payed, :payed)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def booking_params
+    params.require(:booking).permit(:date_in, :date_out, :status, :requested, :confirmed, :contract_signed, :deposit_payed, :payed)
+  end
 end
