@@ -1,4 +1,4 @@
-<%= form_with(model: booking, local: true) do |form| %>
+<%= form_with(model: [contact, person, booking], url: bookings_path, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -21,35 +21,51 @@
     <%= form.datetime_select :date_out %>
   </div>
 
+
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :requested %>
-    <%= form.datetime_select :requested %>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :confirmed %>
-    <%= form.datetime_select :confirmed %>
+    <%= form.label :salutation %>
+    <%= form.text_field :salutation %>
   </div>
 
-  <div class="field">
-    <%= form.label :contract_signed %>
-    <%= form.datetime_select :contract_signed %>
-  </div>
 
-  <div class="field">
-    <%= form.label :deposit_payed %>
-    <%= form.datetime_select :deposit_payed %>
-  </div>
+Contact
 
-  <div class="field">
-    <%= form.label :payed %>
-    <%= form.datetime_select :payed %>
-  </div>
+    <div class="field">
+      <%= form.label :street %>
+      <%= form.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= form.label :city %>
+      <%= form.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= form.label :postalCode %>
+      <%= form.text_field :postalCode %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

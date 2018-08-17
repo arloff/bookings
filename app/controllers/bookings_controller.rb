@@ -28,7 +28,8 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    @contact = @booking.build_contact(contact_params)
+    @person = @contact.persons.build(person_params)
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -59,7 +60,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to bookings_url,
+                    notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,4 +79,13 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:date_in, :date_out, :status, :requested, :confirmed, :contract_signed, :deposit_payed, :payed)
   end
+
+  def contact_params
+    params.require(:booking).permit(:street, :city, :postalCode, :phone, :email)
+  end
+
+  def person_params
+    params.require(:booking).permit(:first_name, :last_name, :salutation)
+  end
+
 end
