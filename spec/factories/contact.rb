@@ -11,4 +11,15 @@ FactoryBot.define do
       create(:person, contact: contact)
     end
   end
+
+  factory :contact2, class: Contact do
+    street { 'Friedrichstr. 123' }
+    postalCode { '54332' }
+    city { 'Berlin' }
+    phone { '89243032' }
+    email { 'anotheremail@somewhere.com' }
+    after(:create) do |contact, _evaluator|
+      create(:person2, contact: contact)
+    end
+  end
 end

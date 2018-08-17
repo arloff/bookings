@@ -3,15 +3,6 @@
 require 'rails_helper'
 require_relative './support/helpers.rb'
 
-def check_for_booking_data(booking)
-  expect_page_to_have_label_content_pairs(
-    [['activerecord.attributes.booking.date_in', format_date(booking.date_in)],
-     ['activerecord.attributes.booking.date_out', format_date(booking.date_out)],
-     ['activerecord.attributes.booking.comment', booking.comment],
-     ['activerecord.attributes.booking.no_persons', booking.no_persons]]
-  )
-end
-
 describe 'creating a booking', type: :feature do
   before :each do
     @booking = create(:booking)
