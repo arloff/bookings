@@ -5,30 +5,27 @@
 <table>
   <thead>
     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>City</th>
       <th>Date in</th>
       <th>Date out</th>
       <th>Status</th>
-      <th>Requested</th>
-      <th>Confirmed</th>
-      <th>Contract signed</th>
-      <th>Deposit payed</th>
-      <th>Payed</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @bookings.each do |booking| %>
+    <% @bookings.each do |booking, contact, person| %>
       <tr>
+        <td><%= person.first_name %></td>
+        <td><%= person.last_name %></td>
+        <td><%= contact.city %></td>
         <td><%= booking.date_in %></td>
         <td><%= booking.date_out %></td>
-        <td><%= booking.status %></td>
-        <td><%= booking.requested %></td>
-        <td><%= booking.confirmed %></td>
-        <td><%= booking.contract_signed %></td>
-        <td><%= booking.deposit_payed %></td>
-        <td><%= booking.payed %></td>
-        <td><%= link_to 'Show', booking %></td>
+        <td></td>
+      <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
         <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

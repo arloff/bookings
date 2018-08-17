@@ -10,35 +10,51 @@
   <%= @booking.date_out %>
 </p>
 
+
 <p>
-  <strong>Status:</strong>
-  <%= @booking.status %>
+  <strong>First name:</strong>
+  <%= @person.first_name %>
 </p>
 
 <p>
-  <strong>Requested:</strong>
-  <%= @booking.requested %>
+  <strong>Last name:</strong>
+  <%= @person.last_name %>
 </p>
 
 <p>
-  <strong>Confirmed:</strong>
-  <%= @booking.confirmed %>
+  <strong>Salutation:</strong>
+  <%= @person.salutation %>
+</p>
+
+
+
+
+<p>
+  <strong>Street:</strong>
+  <%= @contact.street %>
 </p>
 
 <p>
-  <strong>Contract signed:</strong>
-  <%= @booking.contract_signed %>
+  <strong>City:</strong>
+  <%= @contact.city %>
 </p>
 
 <p>
-  <strong>Deposit payed:</strong>
-  <%= @booking.deposit_payed %>
+  <strong>Postalcode:</strong>
+  <%= @contact.postalCode %>
 </p>
 
 <p>
-  <strong>Payed:</strong>
-  <%= @booking.payed %>
+  <strong>Phone:</strong>
+  <%= @contact.phone %>
 </p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>

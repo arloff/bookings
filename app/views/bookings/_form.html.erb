@@ -1,4 +1,5 @@
-<%= form_with(model: [contact, person, booking], url: bookings_path, local: true) do |form| %>
+<%= form_for booking do |form| %>
+
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -21,49 +22,56 @@
     <%= form.datetime_select :date_out %>
   </div>
 
+Person
+
+ <%= form.fields_for person do |person_form| %>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= person_form.label :first_name %>
+    <%= person_form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= person_form.label :last_name %>
+    <%= person_form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :salutation %>
-    <%= form.text_field :salutation %>
+    <%= person_form.label :salutation %>
+    <%= person_form.text_field :salutation %>
   </div>
 
+<% end %>
 
 Contact
+<%= form.fields_for contact do |contact_form| %>
 
     <div class="field">
-      <%= form.label :street %>
-      <%= form.text_field :street %>
+      <%= contact_form.label :street %>
+      <%= contact_form.text_field :street %>
     </div>
 
     <div class="field">
-      <%= form.label :city %>
-      <%= form.text_field :city %>
+      <%= contact_form.label :city %>
+      <%= contact_form.text_field :city %>
     </div>
 
     <div class="field">
-      <%= form.label :postalCode %>
-      <%= form.text_field :postalCode %>
+      <%= contact_form.label :postalCode %>
+      <%= contact_form.text_field :postalCode %>
     </div>
 
     <div class="field">
-      <%= form.label :phone %>
-      <%= form.text_field :phone %>
+      <%= contact_form.label :phone %>
+      <%= contact_form.text_field :phone %>
     </div>
 
     <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
+      <%= contact_form.label :email %>
+      <%= contact_form.text_field :email %>
     </div>
+
+    <% end %>
 
 
 

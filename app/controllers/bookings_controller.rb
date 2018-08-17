@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all.map { |b| [b, b.contact, b.persons.first] }
   end
 
   # GET /bookings/1
@@ -81,11 +81,11 @@ class BookingsController < ApplicationController
   end
 
   def contact_params
-    params.require(:booking).permit(:street, :city, :postalCode, :phone, :email)
+    params.require(:booking).require(:contact).permit(:street, :city, :postalCode, :phone, :email)
   end
 
   def person_params
-    params.require(:booking).permit(:first_name, :last_name, :salutation)
+    params.require(:booking).require(:person).permit(:first_name, :last_name, :salutation)
   end
 
 end
