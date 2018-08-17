@@ -54,8 +54,12 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    @booking.update_attributes(booking_params)
+    @contact.update_attributes(contact_params)
+    @person.update_attributes(person_params)
+
     respond_to do |format|
-      if @booking.update(booking_params)
+      if @booking.save
         format.html do
           redirect_to @booking,
                       notice: t('activerecord.successful.messages.updated',
@@ -86,7 +90,7 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
     @contact = @booking.contact
-    @person = @contact.persons.first
+    @person = @contact.person
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
