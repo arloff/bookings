@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_124528) do
+ActiveRecord::Schema.define(version: 2018_08_17_131433) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "date_in"
@@ -23,6 +23,30 @@ ActiveRecord::Schema.define(version: 2018_08_17_124528) do
     t.datetime "payed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contact_id"
+    t.integer "persons"
+    t.text "comment"
+    t.index ["contact_id"], name: "index_bookings_on_contact_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "postalCode"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "salutation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "contact_id"
+    t.index ["contact_id"], name: "index_people_on_contact_id"
   end
 
 end
