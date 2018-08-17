@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @contact = @booking.build_contact
+    @person = @contact.persons.build
   end
 
   # GET /bookings/1/edit
@@ -67,6 +69,8 @@ class BookingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_booking
     @booking = Booking.find(params[:id])
+    @contact = @booking.contact
+    @person = @contact.persons.first
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -2,6 +2,6 @@
 
 # Represents a Person.
 class Person < ApplicationRecord
-  has_one :contact
-  has_many :bookings, through: contact
+  belongs_to :contact
+  has_many :bookings, through: :contact
 end
