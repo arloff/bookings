@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "contacts/show", type: :view do
+RSpec.describe 'contacts/show', type: :view do
   before(:each) do
     @contact = assign(:contact, Contact.create!(
-      :street => "Street",
-      :city => "City",
-      :postalCode => "Postal Code",
-      :phone => "Phone",
-      :email => "Email"
-    ))
+                                  street: 'Street',
+                                  city: 'City',
+                                  postalCode: 'Postal Code',
+                                  phone: 'Phone',
+                                  email: 'Email'
+                                ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Street/)
     expect(rendered).to match(/City/)

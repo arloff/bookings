@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddContactToPerson < ActiveRecord::Migration[5.2]
   def change
     add_reference :people, :contact, foreign_key: true
