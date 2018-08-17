@@ -1,0 +1,57 @@
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date_in %>
+    <%= form.datetime_select :date_in %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_out %>
+    <%= form.datetime_select :date_out %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requested %>
+    <%= form.datetime_select :requested %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirmed %>
+    <%= form.datetime_select :confirmed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract_signed %>
+    <%= form.datetime_select :contract_signed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deposit_payed %>
+    <%= form.datetime_select :deposit_payed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payed %>
+    <%= form.datetime_select :payed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

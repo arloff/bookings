@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date in:</strong>
+  <%= @booking.date_in %>
+</p>
+
+<p>
+  <strong>Date out:</strong>
+  <%= @booking.date_out %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @booking.status %>
+</p>
+
+<p>
+  <strong>Requested:</strong>
+  <%= @booking.requested %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @booking.confirmed %>
+</p>
+
+<p>
+  <strong>Contract signed:</strong>
+  <%= @booking.contract_signed %>
+</p>
+
+<p>
+  <strong>Deposit payed:</strong>
+  <%= @booking.deposit_payed %>
+</p>
+
+<p>
+  <strong>Payed:</strong>
+  <%= @booking.payed %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>
