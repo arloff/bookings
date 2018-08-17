@@ -1,0 +1,11 @@
+de:
+  activerecord:
+    models:
+      booking: Buchungsanfrage
+    attributes:
+      booking:
+        date_in: 'Anreise'
+        date_out: 'Abreise'
+        no_persons: 'Anzahl Gäste'
+        comment: 'Kommentar'
+      # will translate User attribute 'login' as 'Handle'

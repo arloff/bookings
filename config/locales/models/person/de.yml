@@ -1,0 +1,9 @@
+de:
+  activerecord:
+    models:
+      person: Gast
+    attributes:
+      person:
+        first_name: 'Vorname'
+        last_name: 'Nachname'
+        salutation: 'Anrede'

@@ -4,4 +4,5 @@
 class Contact < ApplicationRecord
   has_many :bookings
   has_many :persons
+  validates :email, presence: true
 end

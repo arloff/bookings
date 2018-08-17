@@ -1,0 +1,12 @@
+de:
+  activerecord:
+    models:
+      contact: Kontaktdaten
+    attributes:
+      contact:
+        street: 'Strasse & Hausnummer'
+        city: 'Stadt'
+        postalCode: 'Postleitzahl'
+        email: 'E-Mail'
+        phone: 'Mobil'
+      # will translate User attribute 'login' as 'Handle'
