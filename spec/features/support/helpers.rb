@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+require_relative './login.rb'
 
 def attributes(model_name)
-  h = {'person' => %w[first_name last_name salutation],
-       'contact' => %w[email street city postalCode phone]}
+  h = { 'person' => %w[first_name last_name salutation],
+        'contact' => %w[email street city postalCode phone] }
   h[model_name]
 end
 
@@ -13,7 +14,6 @@ def create_booking(booking)
   fill_in_data(booking.person)
   fill_in_data(booking.contact)
   click_button(t('helpers.submit.create', model: Booking.model_name.human))
-  #click_button 'Buchungsanfrage erstellen'
 end
 
 def fill_in_data(model)
@@ -59,7 +59,8 @@ end
 def check_for_booking_data(booking)
   expect_page_to_have_label_content_pairs(
     [['activerecord.attributes.booking.date_in', format_date(booking.date_in)],
-     ['activerecord.attributes.booking.date_out', format_date(booking.date_out)],
+     ['activerecord.attributes.booking.date_out',
+      format_date(booking.date_out)],
      ['activerecord.attributes.booking.comment', booking.comment],
      ['activerecord.attributes.booking.no_persons', booking.no_persons]]
   )
@@ -68,7 +69,8 @@ end
 def check_for_data(model)
   model_name = model.class.name.downcase
   attributes = attributes(model_name)
-  pairs = attributes.map { |a|
-    ["activerecord.attributes.#{model_name}.#{a}", model.send(a)] }
+  pairs = attributes.map do |a|
+    ["activerecord.attributes.#{model_name}.#{a}", model.send(a)]
+  end
   expect_page_to_have_label_content_pairs(pairs)
 end

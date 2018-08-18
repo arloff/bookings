@@ -5,6 +5,8 @@ require_relative './support/helpers.rb'
 
 describe 'updating a booking', type: :feature do
   before :each do
+    user = FactoryBot.create(:admin)
+    login_as(user, scope: :user)
     @booking = create(:booking)
     create_booking(@booking)
     @booking2 = create(:booking2)

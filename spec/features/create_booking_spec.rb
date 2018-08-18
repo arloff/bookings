@@ -5,6 +5,8 @@ require_relative './support/helpers.rb'
 
 describe 'creating a booking', type: :feature do
   before :each do
+    user = FactoryBot.create(:admin)
+    login_as(user, scope: :user)
     @booking = create(:booking)
   end
   context 'creates a booking' do
