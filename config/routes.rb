@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   scope '/:locale' do
     devise_for :users, controllers: {
-      registrations: 'users/registrations'
+      registrations: 'devise/registrations'
     }
     # resources :people
     # resources :contacts
