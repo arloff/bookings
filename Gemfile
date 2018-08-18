@@ -75,5 +75,4 @@ gem 'rubocop-rspec', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'icalendar'
-
-ruby '2.5.1'
+gem 'devise'
