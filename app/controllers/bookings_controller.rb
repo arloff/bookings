@@ -4,12 +4,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
-  include BookingsHelper
-  def ical
-    cal = fill_calendar(Booking.all)
-    render plain: cal.to_ical
-  end
-
   # GET /bookings
   # GET /bookings.json
   def index

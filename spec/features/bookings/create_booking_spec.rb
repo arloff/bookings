@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require_relative './support/helpers.rb'
+require_relative '../support/helpers.rb'
+
+RSpec.configure do |config|
+  config.include BookingsHelper, type: :feature
+end
 
 describe 'creating a booking', type: :feature do
   before :each do

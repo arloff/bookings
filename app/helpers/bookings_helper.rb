@@ -6,26 +6,4 @@ module BookingsHelper
     I18n.l(date.to_date, format: :default)
   end
 
-  def fill_calendar(bookings)
-    require 'icalendar'
-    require 'icalendar/tzinfo'
-    cal = Icalendar::Calendar.new
-
-    event_start = DateTime.new(2018,8,30,9,0,0)
-    tzid = 'Europe/Berlin'
-    tz = TZInfo::Timezone.get tzid
-    timezone = tz.ical_timezone event_start
-    cal.add_timezone timezone
-
-    bookings.each do |booking|
-      cal.event do |e|
-        e.dtstart = Icalendar::Values::DateTime.new(booking.date_in,
-                                                    'tzid' => tzid)
-        e.dtend   = Icalendar::Values::DateTime.new(booking.date_out,
-                                                    'tzid' => tzid)
-        e.summary = booking.persons.first.last_name
-      end
-    end
-    cal
-  end
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'bookings#index'
+  get 'ical', to: 'calendar#ical'
   ActiveAdmin.routes(self)
   scope '/:locale' do
     devise_for :users, controllers: {
@@ -9,10 +11,7 @@ Rails.application.routes.draw do
     # resources :people
     # resources :contacts
     resources :bookings
-    root 'bookings#index'
-    get 'ical', to: 'bookings#ical'
     get 'unauthorized', to: 'users/unauthorized#unauthorized'
   end
-  root 'bookings#index'
-  # see http://guides.rubyonrails.org/routing.html
+    # see http://guides.rubyonrails.org/routing.html
 end
