@@ -1,4 +1,7 @@
 # Booking Calendar
+## React Calendar
+installed with npm following this instruction:
+https://ricostacruz.com/til/npm-in-rails
 
 ## Devise
 
