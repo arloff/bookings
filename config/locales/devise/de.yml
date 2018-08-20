@@ -32,6 +32,7 @@ de:
       updated: "Dein Passwort wurde geändert. Du bist jetzt angemeldet."
       updated_not_active: "Dein Passwort wurde geändert."
     registrations:
+      sign_up: "Registrieren"
       destroyed: "Dein Account wurde gelöscht."
       signed_up: "Du hast dich erfolgreich registriert."
       signed_up_but_inactive: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account inaktiv ist."
@@ -40,6 +41,7 @@ de:
       update_needs_confirmation: "Deine Daten wurden aktualisiert, aber Du musst Deine neue E-Mail-Adresse bestätigen. Du erhälsts in wenigen Minuten eine E-Mail, mit der Du die Änderung Deiner E-Mail-Adresse abschließen kannst."
       updated: "Deine Daten wurden aktualisiert."
     sessions:
+      sign_in : "Anmelden"
       signed_in: "Erfolgreich angemeldet."
       signed_out: "Erfolgreich abgemeldet."
     user:

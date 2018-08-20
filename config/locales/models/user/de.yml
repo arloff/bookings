@@ -1,0 +1,9 @@
+de:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        password: 'Passwort'
+        email: 'E-Mail'
+        role: 'Rolle'
