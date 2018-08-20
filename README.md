@@ -3,6 +3,13 @@
 installed with npm following this instruction:
 https://ricostacruz.com/til/npm-in-rails
 
+### Deploying on heroku
+
+    heroku buildpacks:add 'https://github.com/heroku/heroku-buildpack-nodejs.git'
+    heroku buildpacks:add 'https://github.com/heroku/heroku-buildpack-ruby.git'
+### Added BelkaLab Year Calendar
+https://github.com/BelkaLab/react-yearly-calendar
+
 ## Devise
 
 Some setup you must do manually if you haven't yet:
