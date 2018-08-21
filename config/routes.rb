@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     # resources :people
     # resources :contacts
     resources :bookings
+<<<<<<< HEAD
     get 'unauthorized', to: 'users/unauthorized#unauthorized'
+=======
+    get 'calendar', to: 'calendar#calendar'
+    root 'bookings#index'
+>>>>>>> wip
   end
-    # see http://guides.rubyonrails.org/routing.html
+  # see http://guides.rubyonrails.org/routing.html
 end

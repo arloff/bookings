@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require react-dom/react-dom
+//= require react/react
+//= require react-yearly-calendar/react-yearly-calendar
