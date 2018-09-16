@@ -6,12 +6,15 @@ class CalendarController < ApplicationController
   before_action :set_bookings
 
   include CalendarHelper
+
   def ical
+    authorize! :anonymous_list, Booking
     cal = fill_calendar(@bookings)
     render plain: cal.to_ical
   end
 
   def calendar
+    authorize! :list, Booking
   end
 
   private

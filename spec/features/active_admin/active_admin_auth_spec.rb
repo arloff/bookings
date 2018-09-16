@@ -19,7 +19,7 @@ describe 'active admin', type: :feature do
       user = FactoryBot.create(:guest)
       login_as(user)
     end
-    it 'dashboard is shown' do
+    it 'dashboard is not shown' do
       visit admin_root_path(locale: :de)
       expect(page).not_to have_content(@dashboard_text)
     end

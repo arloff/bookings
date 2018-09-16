@@ -2,6 +2,7 @@
 
 # The Bookings Controller.
 class BookingsController < ApplicationController
+  authorize_resource
   before_action :set_booking, only: %i[show edit update destroy]
 
   # GET /bookings

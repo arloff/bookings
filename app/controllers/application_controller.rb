@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
 
-  authorize_resource unless: :devise_or_active_admin_controller?
   check_authorization unless: :devise_or_active_admin_controller?
 
   def devise_or_active_admin_controller?
@@ -26,7 +25,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_active_admin_user!
     user = authenticate_user!
-    throw(:warden) unless user.admin?
+    redirect_to unauthorized_path
+  #  throw(:warden) unless user.admin?
+  end
+
+  def active_admin_access_denied
+    redirect_to new_session_path
   end
 
   # protected
