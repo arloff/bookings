@@ -1,19 +1,2 @@
 <h1>Hello, Detective!</h1>
-
-<script>
-
-var ReactDOM = require('react-dom');
-var {Calendar, CalendarControls} = require('react-yearly-calendar');
-
-function onDatePicked(date) {
-  alert(date);
-}
-
-ReactDOM.render(
-  <Calendar
-    year={2018}
-    onPickDate={onDatePicked}
-  />,
-  document.getElementById('calendar')
-);
-</script>
+<%= javascript_pack_tag 'hello_react' %>
