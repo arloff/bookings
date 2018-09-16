@@ -17,6 +17,10 @@ class CalendarController < ApplicationController
     authorize! :list, Booking
   end
 
+  def demo
+    authorize! :list, Booking
+  end
+
   private
 
   def set_bookings

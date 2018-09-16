@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'bookings#index'
   get 'ical', to: 'calendar#ical'
   get 'calendar', to: 'calendar#calendar'
+  get 'demo', to: 'calendar#demo'
   ActiveAdmin.routes(self)
   scope '/:locale' do
     devise_for :users, controllers: {
