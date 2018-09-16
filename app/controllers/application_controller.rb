@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
 
+  authorize_resource unless: :devise_or_active_admin_controller?
+  check_authorization unless: :devise_or_active_admin_controller?
+
+  def devise_or_active_admin_controller?
+    devise_controller? || active_admin_controller?
+  end
+
+  def active_admin_controller?
+    self.class.name.split('::').first == 'Admin'
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -19,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   # protected
-# 
+  #
   # def authenticate_user!
   #   if user_signed_in?
   #     redirect_to unauthorized_path
