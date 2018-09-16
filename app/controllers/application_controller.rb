@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_active_admin_user!
     user = authenticate_user!
-    redirect_to unauthorized_path
+    redirect_to unauthorized_path unless user.admin?
   #  throw(:warden) unless user.admin?
   end
 
-  def active_admin_access_denied
-    redirect_to new_session_path
+  def active_admin_access_denied(e)
+    redirect_to unauthorized_path
   end
 
   # protected
