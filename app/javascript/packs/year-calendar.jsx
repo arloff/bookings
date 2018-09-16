@@ -4,29 +4,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Picker from 'rc-calendar/lib/Picker';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
-import zhCN from 'rc-calendar/lib/locale/zh_CN';
+import deDE from 'rc-calendar/lib/locale/de_DE';
 import enUS from 'rc-calendar/lib/locale/en_US';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import 'rc-calendar/assets/index.css';
 import 'rc-time-picker/assets/index.css';
 
 import moment from 'moment';
-import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
+import 'moment/locale/de';
 
-const cn = location.search.indexOf('cn') !== -1;
+const cn = false;
 
 if (cn) {
-  moment.locale('zh-cn');
-} else {
   moment.locale('en-gb');
+} else {
+  moment.locale('de-de');
 }
 
 const now = moment();
 if (cn) {
-  now.utcOffset(8);
-} else {
   now.utcOffset(0);
+} else {
+  now.utcOffset(1);
 }
 
 const defaultCalendarValue = now.clone();
@@ -54,49 +54,9 @@ function disabledDate(current) {
   return current.isBefore(date);  // can not select days before today
 }
 
-function disabledTime(time, type) {
-  console.log('disabledTime', time, type);
-  if (type === 'start') {
-    return {
-      disabledHours() {
-        const hours = newArray(0, 60);
-        hours.splice(20, 4);
-        return hours;
-      },
-      disabledMinutes(h) {
-        if (h === 20) {
-          return newArray(0, 31);
-        } else if (h === 23) {
-          return newArray(30, 60);
-        }
-        return [];
-      },
-      disabledSeconds() {
-        return [55, 56];
-      },
-    };
-  }
-  return {
-    disabledHours() {
-      const hours = newArray(0, 60);
-      hours.splice(2, 6);
-      return hours;
-    },
-    disabledMinutes(h) {
-      if (h === 20) {
-        return newArray(0, 31);
-      } else if (h === 23) {
-        return newArray(30, 60);
-      }
-      return [];
-    },
-    disabledSeconds() {
-      return [55, 56];
-    },
-  };
-}
 
-const formatStr = 'YYYY-MM-DD HH:mm:ss';
+//const formatStr = 'YYYY-MM-DD HH:mm:ss';
+const formatStr = 'DD.MM.YYYY';
 function format(v) {
   return v ? v.format(formatStr) : '';
 }
@@ -115,69 +75,15 @@ function onStandaloneSelect(value) {
   console.log(format(value[0]), format(value[1]));
 }
 
-class Demo extends React.Component {
-  state = {
-    value: [],
-    hoverValue: [],
-  }
-
-  onChange = (value) => {
-    console.log('onChange', value);
-    this.setState({ value });
-  }
-
-  onHoverChange = (hoverValue) => {
-    this.setState({ hoverValue });
-  }
-
-  render() {
-    const state = this.state;
-    const calendar = (
-      <RangeCalendar
-        hoverValue={state.hoverValue}
-        onHoverChange={this.onHoverChange}
-        showWeekNumber={false}
-        dateInputPlaceholder={['start', 'end']}
-        defaultValue={[now, now.clone().add(1, 'months')]}
-        locale={cn ? zhCN : enUS}
-        disabledTime={disabledTime}
-        timePicker={timePickerElement}
-      />
-    );
-    return (
-      <Picker
-        value={state.value}
-        onChange={this.onChange}
-        animation="slide-up"
-        calendar={calendar}
-      >
-        {
-          ({ value }) => {
-            return (<span>
-                <input
-                  placeholder="please select"
-                  style={{ width: 350 }}
-                  disabled={state.disabled}
-                  readOnly
-                  className="ant-calendar-picker-input ant-input"
-                  value={isValidRange(value) && `${format(value[0])} - ${format(value[1])}` || ''}
-                />
-                </span>);
-          }
-        }
-      </Picker>);
-  }
-}
 
 ReactDOM.render(
   <div>
-    <h2>calendar</h2>
     <div style={{ margin: 10 }}>
       <RangeCalendar
-        showToday={false}
+        showToday={true}
         showWeekNumber
-        dateInputPlaceholder={['start', 'end']}
-        locale={cn ? zhCN : enUS}
+        dateInputPlaceholder={['Anreisetag', 'Abreisetag']}
+        locale={cn ? enUS : deDE}
         showOk={false}
         showClear
         format={formatStr}
@@ -185,13 +91,9 @@ ReactDOM.render(
         onSelect={onStandaloneSelect}
         disabledDate={disabledDate}
         timePicker={timePickerElement}
-        disabledTime={disabledTime}
-        renderFooter={() => <span>extra footer</span>}
+        renderFooter={() => <span>Zeitraum Buchung: </span>}
       />
     </div>
     <br />
 
-    <div style={{ margin: 20 }}>
-      <Demo />
-    </div>
   </div>, document.getElementById('year-calendar'));
