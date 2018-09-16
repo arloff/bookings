@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root 'bookings#index'
   get 'ical', to: 'calendar#ical'
+  get 'overview', to: 'calendar#overview'
   get 'calendar', to: 'calendar#calendar'
   get 'demo', to: 'calendar#demo'
   ActiveAdmin.routes(self)

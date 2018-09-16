@@ -10,8 +10,15 @@ function onDatePicked(date) {
 ReactDOM.render(
   <div><p>huhu</p>
   <Calendar
+   year={2018}
+   onPickDate={onDatePicked}
+   firstDayOfWeek={1}
+
+
+  />
+  <CalendarControls
     year={2018}
-    onPickDate={onDatePicked}
+   showTodayButton={true}
   />
   </div>,
   document.getElementById('react-content')
