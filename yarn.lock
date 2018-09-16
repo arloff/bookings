@@ -4854,6 +4854,16 @@ rc-select@^8.2.8:
     react-lifecycles-compat "^3.0.2"
     warning "^4.0.2"
 
+rc-time-picker@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/rc-time-picker/-/rc-time-picker-3.4.0.tgz#274e80122f885b37a4eace7393f3a25334fa141f"
+  dependencies:
+    babel-runtime "6.x"
+    classnames "2.x"
+    moment "2.x"
+    prop-types "^15.5.8"
+    rc-trigger "^2.2.0"
+
 rc-trigger@^2.2.0, rc-trigger@^2.3.0, rc-trigger@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rc-trigger/-/rc-trigger-2.5.4.tgz#9088a24ba5a811b254f742f004e38a9e2f8843fb"
