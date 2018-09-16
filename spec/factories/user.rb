@@ -5,18 +5,24 @@ FactoryBot.define do
   factory :user do
     email { 'test@example.com' }
     password { 'f4k3p455w0rd' }
-    role { 'guest' }
+    role { :guest }
   end
 
   factory :admin, class: User do
     email { 'admin@example.com' }
     password { 'f4k3p455w0rd' }
-    role { 'admin' }
+    role { :admin }
   end
 
   factory :staff, class: User do
     email { 'staff@example.com' }
     password { 'f4k3p455w0rd' }
-    role { 'staff' }
+    role { :staff }
+  end
+
+  factory :guest, class: User do
+    email { 'guest@example.com' }
+    password { 'f4k3p455w0rd' }
+    role { :guest }
   end
 end

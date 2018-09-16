@@ -8,13 +8,11 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
-  validates :role, inclusion: { in: %w[admin staff guest],
-                                message: '%{value} is not a valid role' }
-  def admin?
-    role == 'admin'
-  end
 
-  def staff?
-    (role == 'staff') || (role == 'admin')
+  ROLES = %i[admin staff guest user].freeze
+  enum role: ROLES
+  after_initialize :set_default_role, if: :new_record?
+  def set_default_role
+    self.role ||= :user
   end
 end
