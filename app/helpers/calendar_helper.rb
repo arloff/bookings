@@ -20,6 +20,7 @@ module CalendarHelper
                                                     'tzid' => tzid)
         e.dtend   = Icalendar::Values::DateTime.new(booking.date_out,
                                                     'tzid' => tzid)
+        e.url = booking_url(booking)
         e.summary = booking.persons.first.initials
       end
     end

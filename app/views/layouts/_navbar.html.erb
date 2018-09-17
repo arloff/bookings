@@ -1,15 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Schwalbennest Arloff</a>
+  <%= link_to 'Schwalbennest Arloff', root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Buchungsübersicht</a>
+        <%= link_to 'Buchungsübersicht', bookings_path, class: "nav-link" %>
+         <span class="sr-only">(current)</span>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Buchungsanfrage <span class="sr-only">(current)</span></a>
+        <%= link_to 'Buchungsanfrage', new_booking_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Preise</a>
