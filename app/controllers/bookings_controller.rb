@@ -9,6 +9,10 @@ class BookingsController < ApplicationController
   # GET /bookings.json
   def index
     @bookings = Booking.all.map { |b| [b, b.contact, b.persons.first] }
+    respond_to do |format|
+      format.html
+      format.json { render json: @bookings }
+    end
   end
 
   # GET /bookings/1
