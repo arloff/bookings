@@ -1,5 +1,15 @@
 # Booking Calendar
 
+## Todo
+
+- add Booking data to calendar overview
+https://www.webascender.com/blog/rails-react-forms-validations-real-time-updates/
+https://medium.com/quick-code/simple-rails-crud-app-with-react-frontend-using-react-rails-gem-b708b89a9419
+
+
+heroku apps:destroy
+
+
 ### Deploying on heroku
 
     heroku buildpacks:add 'https://github.com/heroku/heroku-buildpack-nodejs.git'
