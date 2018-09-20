@@ -18,6 +18,6 @@ describe 'login', type: :feature do
     fill_in t('activerecord.attributes.user.email'), with: @admin.email
     fill_in t('activerecord.attributes.user.password'), with:'not the password'
     click_button t('devise.sessions.sign_in')
-    expect(page).to have_content t('devise.user.signed_in')
+    expect(page).to have_content t('devise.failure.invalid')
   end
 end
