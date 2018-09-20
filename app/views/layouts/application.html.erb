@@ -12,11 +12,18 @@
   </head>
 
   <body>
+
     <%= render 'layouts/navbar' %>
+
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: bootstrap_class_for(name) %>
+    <% end -%>
+
     <%= yield %>
+
     <hr/>
     <% if user_signed_in? %>
-    Logged in as <%= current_user.email %>.
+      Logged in as <%= current_user.email %>.
     <% end %>
   </body>
 </html>
