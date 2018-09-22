@@ -11,6 +11,18 @@
       <%= render "nav/item", show: (can? :create, Booking),
                             text: t('activerecord.models.booking'),
                             page: new_booking_path %>
+      <%= render "nav/item", show: (can? :list, Booking),
+                            text: t('menu.calendar'),
+                            page: overview_path %>
+      <%= render "nav/item", show: (current_user && current_user.admin?),
+                            text: t('menu.demo'),
+                            page: demo_path %>
+      <%= render "nav/item", show: (current_user && current_user.admin?),
+                            text: t('menu.ical'),
+                            page: ical_path %>
+      <%= render "nav/item", show: (current_user && current_user.admin?),
+                            text: t('menu.admin'),
+                            page: admin_root_path %>
 
       <li class="nav-item">
         <% if user_signed_in? %>
