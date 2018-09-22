@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'bookings#index'
+  root 'welcome#startpage'
   get 'ical', to: 'calendar#ical'
   get 'overview', to: 'calendar#overview'
   get 'calendar', to: 'calendar#calendar'
