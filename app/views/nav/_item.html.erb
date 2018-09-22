@@ -1,0 +1,7 @@
+
+<% if show %>
+<li class="nav-item <%= active_if(page) %> ">
+  <%= link_to text, page, class: "nav-link" %>
+  <%= active_screen_reader_if(page) %>
+</li>
+<% end %>

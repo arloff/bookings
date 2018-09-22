@@ -13,7 +13,7 @@
 
   <body>
 
-    <%= render 'layouts/navbar' %>
+    <%= render 'navigation/navbar' %>
 
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: bootstrap_class_for(name) %>

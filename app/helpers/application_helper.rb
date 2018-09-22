@@ -11,4 +11,17 @@ module ApplicationHelper
   def bootstrap_class_for(name)
     FLASH_LEVELS[name.to_sym]
   end
+
+  def active_if(path)
+    current_page?(path) ? 'active' : ''
+  end
+
+  def active_screen_reader_if(path)
+    if current_page?(path)
+      c = t('screen_reader.current')
+      "<span class=\"sr-only\">(#{c})</span>".html_safe
+    else
+      ''
+    end
+  end
 end

@@ -2,6 +2,9 @@ de:
   activerecord:
     models:
       booking: Buchungsanfrage
+    views:
+      booking:
+        index: Buchungsübersicht
     attributes:
       booking:
         date_in: 'Anreise'

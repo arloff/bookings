@@ -5,16 +5,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <%= link_to 'Buchungsübersicht', bookings_path, class: "nav-link" %>
-         <span class="sr-only">(current)</span>
-      </li>
-      <li class="nav-item active">
-        <%= link_to 'Buchungsanfrage', new_booking_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Preise</a>
-      </li>
+      <%= render "nav/item", show: (can? :index, Booking),
+                            text: t('activerecord.views.booking.index'),
+                            page: bookings_path %>
+      <%= render "nav/item", show: (can? :create, Booking),
+                            text: t('activerecord.models.booking'),
+                            page: new_booking_path %>
+
       <li class="nav-item">
         <% if user_signed_in? %>
         <%= link_to t('devise.login.sign_out'), destroy_user_session_path, method: :get, class: 'nav-link' %>

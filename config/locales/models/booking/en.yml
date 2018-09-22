@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      booking: Booking Request
+    views:
+      booking:
+        index: All Bookings
+    attributes:
+      booking:
+        date_in: 'Date in'
+        date_out: 'Date out'
+        no_persons: 'Number of Guests'
+        comment: 'Comment'
+      # will translate User attribute 'login' as 'Handle'
