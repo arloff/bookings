@@ -5,5 +5,4 @@ module BookingsHelper
   def format_date(date)
     I18n.l(date.to_date, format: :default)
   end
-
 end

@@ -5,11 +5,9 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     can :anonymous_list, Booking
-    
-    return unless user.present?
 
+    return unless user.present?
 
     return unless user.guest? || user.staff? || user.admin?
 

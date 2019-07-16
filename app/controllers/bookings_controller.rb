@@ -77,8 +77,10 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url,
-                    notice: 'Booking was successfully destroyed.' }
+      format.html do
+        redirect_to bookings_url,
+                    notice: 'Booking was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -104,5 +106,4 @@ class BookingsController < ApplicationController
   def person_params
     params.require(:booking).require(:person).permit(:first_name, :last_name, :salutation)
   end
-
 end

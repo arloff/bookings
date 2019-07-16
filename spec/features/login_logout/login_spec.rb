@@ -16,7 +16,7 @@ describe 'login', type: :feature do
   it 'login redirects to login page on wrong password' do
     visit new_user_session_path(locale: :de)
     fill_in t('activerecord.attributes.user.email'), with: @admin.email
-    fill_in t('activerecord.attributes.user.password'), with:'not the password'
+    fill_in t('activerecord.attributes.user.password'), with: 'not the password'
     click_button t('devise.sessions.sign_in')
     expect(page).to have_content t('devise.failure.invalid')
   end
