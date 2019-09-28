@@ -4,6 +4,8 @@
 class CalendarController < ApplicationController
   skip_before_action :authenticate_user!, only: [:ical]
   before_action :set_bookings
+  before_action :set_booking_dates, only: [:calendar]
+
 
   include CalendarHelper
 
@@ -22,5 +24,9 @@ class CalendarController < ApplicationController
 
   def set_bookings
     @bookings = Booking.all
+  end
+
+  def set_booking_dates
+    @booking_dates = Booking.pluck(:date_in, :date_out)
   end
 end

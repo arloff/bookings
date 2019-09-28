@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    byebug
     @booking = Booking.new
     @contact = @booking.build_contact
     @person = @contact.persons.build

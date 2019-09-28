@@ -2,7 +2,7 @@
 
 <!-- Javascripts -->
 
-<form action="#">
+<form action="<%= new_booking_path %>">
 Anreise:   <input type="date" id="start_date">
 
 Abreise:  <input type="date" id="end_date">
@@ -45,10 +45,18 @@ Abreise:  <input type="date" id="end_date">
 
 
 
-$('.calendar').calendar('appendText',"hallo", 2019, 09, 28),
-$('.calendar').calendar('addRange',2019,9,1,2019,9,10);
-$('.calendar').calendar('addBlocked',2019,1,1,2019,1,10);
-$('.calendar').calendar('addBlocked',2019,4,10,2019,4,15);
+// $('.calendar').calendar('appendText',"hallo", 2019, 09, 28)
+<% @booking_dates.each do | date_in, date_out | %>
+var sy = <%= date_in.year %>;
+var sm = <%= date_in.month %>;
+var sd = <%= date_in.day %>;
+var ey = <%= date_out.year %>;
+var em = <%= date_out.month %>;
+var ed = <%= date_out.day %>;
+
+$('.calendar').calendar('addBlocked', sy, sm, sd, ey, em, ed);
+<% end %>
+
 $('.calendar').on('jqyc.dayChoose', function (event) {
 var choosenYear = $(this).data('year');
 var choosenMonth = $(this).data('month');
@@ -67,9 +75,6 @@ var end_date = new Date(end_year, end_month-1, end_day+1);
 $('#start_date').val(start_date.toISOString().slice(0, 10))
 $('#end_date').val(end_date.toISOString().slice(0, 10))
 });
-
-
-
 
 
 
