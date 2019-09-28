@@ -13,10 +13,7 @@
                             page: new_booking_path %>
       <%= render "nav/item", show: (can? :list, Booking),
                             text: t('menu.calendar'),
-                            page: overview_path %>
-      <%= render "nav/item", show: (current_user && current_user.admin?),
-                            text: t('menu.demo'),
-                            page: demo_path %>
+                            page: calendar_path %>
       <%= render "nav/item", show: (current_user && current_user.admin?),
                             text: t('menu.ical'),
                             page: ical_path %>

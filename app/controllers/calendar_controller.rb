@@ -14,14 +14,7 @@ class CalendarController < ApplicationController
   end
 
   def calendar
-    authorize! :list, Booking
-  end
-
-  def demo
-    authorize! :list, Booking
-  end
-
-  def overview
+    authorize! :anonymous_list, Booking
     authorize! :list, Booking
   end
 

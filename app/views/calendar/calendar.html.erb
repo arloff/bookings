@@ -1,4 +1,91 @@
-<h1>Bookings</h1>
+<h1>Buchen</h1>
 
-<div id="year-calendar"></div>
-<%= javascript_pack_tag 'year-calendar' %>
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+<!-- Javascripts -->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/popper.js/dist/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="jquery.bootstrap.year.calendar.css">
+        <script src="jquery.bootstrap.year.calendar.js"></script>
+
+
+
+            <h1>Calendar Tryout</h1>
+              <form action="#">
+              Anreise:   <input type="date" id="start_date">
+
+              Abreise:  <input type="date" id="end_date">
+                <br><br>
+                <input type="submit" value="Submit">
+              </form>
+
+          <a href="https://www.jqueryscript.net/time-clock/Year-Calendar-Bootstrap-4.html">  https://www.jqueryscript.net/time-clock/Year-Calendar-Bootstrap-4.html</a>
+
+
+            <hr/>
+          <div class="calendar"></div>
+  <script>
+     var currentDate = new Date();
+      $('.calendar').calendar({
+        mode: 'rangepicker',
+        l10n: {
+            jan: "Januar",
+            feb: "Februar",
+            mar: "März",
+            apr: "April",
+            may: "Mai",
+            jun: "Juni",
+            jul: "Juli",
+            aug: "August",
+            sep: "September",
+            oct: "Oktober",
+            nov: "November",
+            dec: "Dezember",
+            mn: "Mo",
+            tu: "Di",
+            we: 'Mi',
+            th: 'Do',
+            fr: 'Fr',
+            sa: 'Sa',
+            su: 'So'
+        }
+
+});
+
+
+
+
+$('.calendar').calendar('appendText',"hallo", 2019, 09, 28),
+$('.calendar').calendar('addRange',2019,9,1,2019,9,10);
+$('.calendar').calendar('addBlocked',2019,1,1,2019,1,10);
+$('.calendar').calendar('addBlocked',2019,4,10,2019,4,15);
+$('.calendar').on('jqyc.dayChoose', function (event) {
+var choosenYear = $(this).data('year');
+var choosenMonth = $(this).data('month');
+var choosenDay = $(this).data('day-of-month');
+
+
+var start_year = $(this).data('rangepicker-start-year');
+var start_month = $(this).data('rangepicker-start-month');
+var start_day = $(this).data('rangepicker-start-day-of-month');
+var end_year = $(this).data('rangepicker-end-year');
+var end_month = $(this).data('rangepicker-end-month');
+var end_day = $(this).data('rangepicker-end-day-of-month');
+var start_date = new Date(start_year, start_month-1, start_day+1);
+var end_date = new Date(end_year, end_month-1, end_day+1);
+
+$('#start_date').val(start_date.toISOString().slice(0, 10))
+$('#end_date').val(end_date.toISOString().slice(0, 10))
+});
+
+
+
+
+
+
+  </script>

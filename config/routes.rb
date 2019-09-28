@@ -3,9 +3,7 @@
 Rails.application.routes.draw do
   root 'welcome#startpage'
   get 'ical', to: 'calendar#ical'
-  get 'overview', to: 'calendar#overview'
   get 'calendar', to: 'calendar#calendar'
-  get 'demo', to: 'calendar#demo'
   ActiveAdmin.routes(self)
   scope '/:locale' do
     devise_for :users, controllers: {
