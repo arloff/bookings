@@ -18,6 +18,11 @@ class CalendarController < ApplicationController
   def calendar
     authorize! :anonymous_list, Booking
     authorize! :list, Booking
+     bookings = Booking.pluck(:date_in, :date_out).map do |a,b|
+      "{sy: #{a.year}, sm: #{a.month}, sd: #{a.day}, ey: #{b.year}, em: #{b.month}, ed: #{b.day}}"
+    end.join(",")
+    @bookings_json = "[#{bookings}]"
+# Booking.pluck(:date_in, :date_out).map{ |a,b| {sy: a.year, sm: a.month, sd: a.day, ey: b.year, em: b.month, 'ed' => b.day} }.to_json.gsub(/"/,"'")
   end
 
   private
