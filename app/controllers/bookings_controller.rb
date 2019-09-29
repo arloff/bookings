@@ -21,8 +21,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    byebug
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @contact = @booking.build_contact
     @person = @contact.persons.build
   end
@@ -97,7 +96,11 @@ class BookingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
+    if params['booking'].nil?
+      {}
+    else
     params.require(:booking).permit(:date_in, :date_out, :comment, :no_persons)
+  end
   end
 
   def contact_params

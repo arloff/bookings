@@ -1,15 +1,13 @@
 <h1>Buchen</h1>
 
-<!-- Javascripts -->
 
-<form action="<%= new_booking_path %>">
-Anreise:   <input type="date" id="start_date">
-
-Abreise:  <input type="date" id="end_date">
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
-
+<%= form_with(url:new_booking_path, method: "get", local: true, locale: I18n.locale) do %>
+  <%= label_tag(:q, "Anreise") %>
+  <%= date_field( :booking,  :date_in) %>
+    <%= label_tag(:q, "Abreise") %>
+  <%= date_field( :booking, :date_out) %>
+  <%= submit_tag("Create new Booking Request") %>
+<% end %>
 
 
             <hr/>
@@ -72,8 +70,8 @@ var end_day = $(this).data('rangepicker-end-day-of-month');
 var start_date = new Date(start_year, start_month-1, start_day+1);
 var end_date = new Date(end_year, end_month-1, end_day+1);
 
-$('#start_date').val(start_date.toISOString().slice(0, 10))
-$('#end_date').val(end_date.toISOString().slice(0, 10))
+$('#booking_date_in').val(start_date.toISOString().slice(0, 10))
+$('#booking_date_out').val(end_date.toISOString().slice(0, 10))
 });
 
 
