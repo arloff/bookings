@@ -55,19 +55,7 @@
 });
 
 
-
-
 // $('.calendar').calendar('appendText',"hallo", 2019, 09, 28)
-<% @booking_dates.each do | date_in, date_out | %>
-var sy = <%= date_in.year %>;
-var sm = <%= date_in.month %>;
-var sd = <%= date_in.day %>;
-var ey = <%= date_out.year %>;
-var em = <%= date_out.month %>;
-var ed = <%= date_out.day %>;
-
-$('.calendar').calendar('addBlocked', sy, sm, sd, ey, em, ed);
-<% end %>
 
 $('.calendar').on('jqyc.dayChoose', function (event) {
 var choosenYear = $(this).data('year');

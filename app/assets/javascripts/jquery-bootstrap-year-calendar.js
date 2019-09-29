@@ -41,9 +41,6 @@
             recalcHeight();
         },
 
-        addBlocked: function(startYear, startMonth, startDay, endYear, endMonth, endDay) {
-          addMarker('jqyc-range-reserved-between',startYear, startMonth, startDay, endYear, endMonth, endDay);
-        },
         addRange: function(startYear, startMonth, startDay, endYear, endMonth, endDay){
 
             $('.jqyc-range-choosen-between').removeClass('jqyc-range-choosen-between');
@@ -468,9 +465,15 @@
             addRagepickerClassBetweenDays('jqyc-range-choosen-between');
         }
 
-        //markBookings();
+        markBookings();
     }
     function markBookings(){
+      var bookings = settings.bookings;
+      var i;
+      for (i = 0; i < bookings.length; i++) {
+        b = bookings[i];
+        addMarker('jqyc-range-reserved-between',b.sy,b.sm,b.sd,b.ey,b.em, b.ed);
+      }
 
     }
     function jqycGetMonthHTMLStringWithData(firstDay, month, year, days = 31) {
