@@ -30,10 +30,10 @@ end
 
 def fill_in_booking(booking)
   within('#booking-form') do
-    select_date(booking.date_in,
-                from: t('activerecord.attributes.booking.date_in'))
-    select_date(booking.date_out,
-                from: t('activerecord.attributes.booking.date_out'))
+    fill_in t('activerecord.attributes.booking.date_in'),
+            with: booking.date_in.strftime('%Y-%m-%d')
+    fill_in t('activerecord.attributes.booking.date_out'),
+            with: booking.date_out.strftime('%Y-%m-%d')
     fill_in t('activerecord.attributes.booking.no_persons'),
             with: booking.no_persons
   end
