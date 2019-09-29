@@ -103,7 +103,14 @@
                 $calendar.find('.jqyc-next-year').on("click", showNextYear);
                 $calendar.find('.jqyc-not-empty-td').on("click", triggerDayChoose);
                 $calendar.trigger('jqyc.changeYearToNext');
+                showBookings();
                 $(this).parent().parent().data('currentYear', currentYear);
+
+            }
+            function showBookings(){
+
+              //$calendar.addMarker('jqyc-range-reserved-between',2020,1,1,2020,1,5);
+                 $(this).parent().parent().addBlocked(2020,1,1,2020,1,5);
             }
 
             function triggerDayChoose() {
@@ -460,8 +467,12 @@
         if (settings.mode == 'rangepicker') {
             addRagepickerClassBetweenDays('jqyc-range-choosen-between');
         }
-    }
 
+        //markBookings();
+    }
+    function markBookings(){
+
+    }
     function jqycGetMonthHTMLStringWithData(firstDay, month, year, days = 31) {
 
         if (firstDay == 0) {
